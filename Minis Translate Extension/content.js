@@ -54,7 +54,7 @@ async function logElementsWithChineseText(node) {
                 "Content-Type": "application/json"
               },
               body: JSON.stringify({
-                prompt: "please translate this into slightly more colloquial English, do not add anything like 'this is the translation' at the start. " + textContent
+                prompt: "please translate this into English, do not add anything like 'this is the translation' at the start. " + textContent
               })
             });
   

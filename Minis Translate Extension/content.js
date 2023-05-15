@@ -1,5 +1,6 @@
 let queue = [];
 let charCount = 0;
+let gptPrompt = "please translate this into English, do not add anything like 'this is the translation' at the start. ";
 
 async function logElementsWithAsianText(node) {
     const visibleElements = [
@@ -79,7 +80,7 @@ async function translateQueue() {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        prompt: "please translate this into English, do not add anything like 'this is the translation' at the start. " + prompt
+        prompt: gptPrompt + prompt
       })
     });
 

@@ -1,6 +1,6 @@
 let queue = [];
 let charCount = 0;
-let gptPrompt = "please translate this into English, do not add anything like 'this is the translation' at the start. ";
+let gptPrompt = "please translate this into English, do not add anything like 'this is the translation' at the start. Follow the paragraph structure of ***.";
 
 async function logElementsWithAsianText(node) {
     const visibleElements = [
@@ -73,7 +73,7 @@ async function translateQueue() {
   });
 
   try {
-    const prompt = queue.map(node => node.textContent.trim()).join('\n');
+    const prompt = queue.map(node => node.textContent.trim()).join('\n***\n');
     const response = await fetch("http://localhost:5000/revchatgpt", {
       method: "POST",
       headers: {
@@ -86,7 +86,7 @@ async function translateQueue() {
 
     if (response.ok) {
       const data = await response.json();
-      const translations = data.response.split('\n');
+      const translations = data.response.split('\n***\n');
       for (let i = 0; i < queue.length; i++) {
         queue[i].textContent = translations[i];
       }

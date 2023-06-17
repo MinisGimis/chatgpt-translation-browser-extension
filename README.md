@@ -15,7 +15,3 @@ Translates Chinese, Japanese, and Korean text in browser to English using your c
 
 #### Change `gptPrompt` variable in content.js for customized prompt.
 
-#### Example: 
-"Please translate this into *DESIRED LANGUAGE*, do not add anything like 'this is the translation' at the start. Translate all '*put something here*' into '!!!'"
-
-
